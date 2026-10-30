@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio von Fathi Mustafa mit Softwareprojekten in C#, C++ und SQL.">
+    <title>Fathi Mustafa | Softwareentwicklungs-Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #0b1120;
+            color: #f1f5f9;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        header {
+            border-bottom: 1px solid #263247;
+            background: #0b1120;
+        }
+
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .hero {
+            padding: 105px 0 90px;
+        }
+
+        .eyebrow {
+            color: #60a5fa;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 800px;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.15;
+            margin: 22px 0;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            color: #b7c4d8;
+            font-size: 1.1rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            background: #3b82f6;
+            color: white;
+        }
+
+        .button:hover {
+            background: #2563eb;
+        }
+
+        .button-secondary {
+            background: transparent;
+            border: 1px solid #475569;
+        }
+
+        .button-secondary:hover {
+            background: #172338;
+        }
+
+        section {
+            padding: 75px 0;
+            border-top: 1px solid #263247;
+        }
+
+        .section-label {
+            color: #60a5fa;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin: 10px 0 14px;
+        }
+
+        .section-intro {
+            max-width: 650px;
+            color: #b7c4d8;
+            margin-bottom: 32px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #121c2e;
+            border: 1px solid #29374d;
+            border-radius: 14px;
+            padding: 26px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #60a5fa;
+        }
+
+        .project-number {
+            color: #60a5fa;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin: 8px 0;
+        }
+
+        .project-card p {
+            color: #b7c4d8;
+            margin: 10px 0 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0 20px;
+        }
+
+        .tag {
+            background: #202e44;
+            color: #cfe2ff;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            color: #7db5ff;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            border: 1px solid #34445d;
+            background: #121c2e;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+
+        .about-text {
+            max-width: 760px;
+            color: #cbd5e1;
+        }
+
+        footer {
+            padding: 28px 0;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a class="logo" href="#start">Fathi<span>.</span></a>
+
+            <div class="nav-links">
+                <a href="#projekte">Projekte</a>
+                <a href="#kenntnisse">Kenntnisse</a>
+                <a href="#ueber-mich">Über mich</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="start">
+            <div class="container">
+                <p class="eyebrow">Softwareentwicklung · Portfolio</p>
+
+                <h1>
+                    Hallo, ich bin Fathi.<br>
+                    Ich entwickle <span>mit Code.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Willkommen in meinem Projektportfolio.
+                    Hier zeige ich ausgewählte Softwareprojekte,
+                    praktische Anwendungen und Technologien,
+                    mit denen ich arbeite.
+                </p>
+
+                <div class="buttons">
+                    <a class="button" href="#projekte">Meine Projekte ansehen</a>
+                    <a class="button button-secondary" href="#kontakt">
+                        Kontakt
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projekte">
+            <div class="container">
+                <p class="section-label">Ausgewählte Arbeiten</p>
+                <h2>Meine Projekte</h2>
+
+                <p class="section-intro">
+                    Hier findest du einen Einblick in meine bisherigen
+                    Programmierprojekte. Weitere Details, Screenshots
+                    und Quellcode ergänze ich für jedes Projekt.
+                </p>
+
+                <div class="projects">
+
+                    <!-- Projekt 1: Tic-Tac-Toe -->
+                    <article class="project-card">
+                        <span class="project-number">PROJEKT 01</span>
+                        <h3>Tic-Tac-Toe</h3>
+
+                        <p>
+                            Ein kleines Spiel mit grafischer Oberfläche,
+                            bei dem Spielzüge und Gewinnbedingungen
+                            umgesetzt werden.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Windows Forms</span>
+                        </div>
+
+                        <a class="project-link" href="#kontakt">
+                            Projektdetails folgen →
+                        </a>
+                    </article>
+
+                    <!-- Projekt 2: Taschenrechner -->
+                    <article class="project-card">
+                        <span class="project-number">PROJEKT 02</span>
+                        <h3>Taschenrechner</h3>
+
+                        <p>
+                            Eine Desktop-Anwendung zur Durchführung
+                            grundlegender Rechenoperationen über
+                            eine grafische Benutzeroberfläche.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET</span>
+                            <span class="tag">Windows Forms</span>
+                        </div>
+
+                        <a class="project-link" href="#kontakt">
+                            Projektdetails folgen →
+                        </a>
+                    </article>
+
+                    <!-- Projekt 3: Bank Management System -->
+                    <article class="project-card">
+                        <span class="project-number">PROJEKT 03</span>
+
+                        <h3>Bank Management System</h3>
+
+                        <p>
+                            Eine C++ Anwendung zur Verwaltung von Bankkunden
+                            und verschiedenen Bankgeschäften. Das Projekt
+                            umfasst Kundenverwaltung, Benutzerverwaltung,
+                            Ein- und Auszahlungen, Geldtransfers und
+                            Währungsfunktionen.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Visual Studio</span>
+                            <span class="tag">Dateiverarbeitung</span>
+                        </div>
+
+                        <a class="project-link" href="bank.html">
+                            Projekt ansehen und Screenshots →
+                        </a>
+
+                        <a class="project-link"
+                           href="https://github.com/FathiM19/Bank-Management-System"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Quellcode auf GitHub ansehen →
+                        </a>
+                    </article>
+
+                    <!-- Projekt 4: SQL-Projekte -->
+                    <article class="project-card">
+                        <span class="project-number">PROJEKT 04</span>
+                        <h3>SQL-Projekte</h3>
+
+                        <p>
+                            Datenbankübungen mit Tabellen,
+                            Beziehungen, Fremdschlüsseln und
+                            SQL-Abfragen.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Datenbanken</span>
+                        </div>
+
+                        <a class="project-link" href="#kontakt">
+                            Projektdetails folgen →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="kenntnisse">
+            <div class="container">
+                <p class="section-label">Technologien</p>
+                <h2>Meine Kenntnisse</h2>
+
+                <p class="section-intro">
+                    Die folgenden Technologien nutze ich in meinen
+                    bisherigen Lern- und Programmierprojekten.
+                </p>
+
+                <div class="skills">
+                    <span class="skill">C#</span>
+                    <span class="skill">.NET</span>
+                    <span class="skill">Windows Forms</span>
+                    <span class="skill">C++</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">Git & GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="ueber-mich">
+            <div class="container">
+                <p class="section-label">Über mich</p>
+                <h2>Wer ich bin</h2>
+
+                <p class="about-text">
+                    Ich studiere Cyber Security & Privacy an der
+                    Hochschule Bonn-Rhein-Sieg in Sankt Augustin.
+                    Neben meinem Studium beschäftige ich mich mit
+                    Softwareentwicklung und setze mein Wissen in
+                    eigenen Programmierprojekten praktisch um.
+                    Dabei möchte ich meine Kenntnisse kontinuierlich
+                    erweitern und neue Herausforderungen kennenlernen.
+                </p>
+            </div>
+        </section>
+
+        <section id="kontakt">
+            <div class="container">
+                <p class="section-label">Kontakt</p>
+                <h2>Interesse an meinen Projekten?</h2>
+
+                <p class="section-intro">
+                    Den Quellcode und weitere Informationen zu meinen
+                    Projekten findest du über mein GitHub-Profil.
+                </p>
+
+                <p>
+                    <a class="button"
+                       href="https://github.com/FathiM19"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Mein GitHub-Profil öffnen
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Fathi Mustafa · Softwareentwicklungs-Portfolio
+        </div>
+    </footer>
+</body>
+</html>
